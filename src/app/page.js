@@ -1,58 +1,18 @@
-// export default async function Home() {
+import articlesService from "../services/articles.api";
+import TitlePage from "../components/UI/TitlePage";
+import GridPosts from "../components/UI/GridPosts";
 
-//   const res = await fetch("http://localhost:3030/api/articles");
+export default async function Home() {
 
-//   const articles = await res.json();
-
-//   return (
-//     <div className="container">
-//       <div className="title__page">
-//         <h2>homepage</h2>
-//       </div>
-//       <div className="grid">
-//         {
-//           articles?.data?.map(article => (
-//             <div className="item">
-//               <h2>{article.titre}</h2>
-//               <p>{article.description}</p>
-//               <p>Date : {article.date}</p>
-//             </div>
-//           ))
-//         }
-//       </div>
-//     </div>
-//   )
-// }
-"use client"
-import { useState, useEffect } from "react";
-
-export default function Home() {
-
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3030/api/articles")
-      .then(res => res.json())
-      .then(data => setArticles(data.results))
-      .catch(err => console.error(err))
-  }, [])
+  // on récupère les articles à l'aide du service articlesService
+  const articles = await articlesService.getArticles();
 
   return (
     <div className="container">
-      <div className="title__page">
-        <h2>homepage</h2>
-      </div>
-      <div className="grid">
-        {
-          articles?.map(article => (
-            <div className="item">
-              <h2>{article.title}</h2>
-              <p>{article.description}</p>
-              <p>Date : {article.date}</p>
-            </div>
-          ))
-        }
-      </div>
+      {/* on utilise le composant TitlePage */}
+      <TitlePage title="Accueil" />
+      {/* on utilise le composant GridPosts */}
+      <GridPosts articles={articles.results} />
     </div>
   )
 }

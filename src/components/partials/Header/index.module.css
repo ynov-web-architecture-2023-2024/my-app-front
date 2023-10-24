@@ -1,0 +1,11 @@
+.header__main {
+    padding: 20px ;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header__main .logo {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: var(--color-primary);
+}
