@@ -33,20 +33,20 @@ export default function Home() {
   useEffect(() => {
     fetch("http://localhost:3030/api/articles")
       .then(res => res.json())
-      .then(data => setArticles(data.data))
+      .then(data => setArticles(data.results))
       .catch(err => console.error(err))
   }, [])
 
   return (
-    <div classNameName="container">
-      <div classNameName="title__page">
+    <div className="container">
+      <div className="title__page">
         <h2>homepage</h2>
       </div>
-      <div classNameName="grid">
+      <div className="grid">
         {
           articles?.map(article => (
-            <div classNameName="item">
-              <h2>{article.titre}</h2>
+            <div className="item">
+              <h2>{article.title}</h2>
               <p>{article.description}</p>
               <p>Date : {article.date}</p>
             </div>
