@@ -3,6 +3,7 @@
     border: 1px solid grey;
     padding: 10px;
     border-radius: 4px;
+    position: relative;
 }
 
 .wrapper svg{
@@ -15,4 +16,18 @@
 }
 .wrapper input:focus {
     outline: none;
+}
+.results {
+    position: absolute;
+    max-height: 150px;
+    overflow: scroll;
+    left: 0px;
+    left: 0px;
+    top: 50px;
+    background: white;
+    padding: 10px;
+}
+
+.results p {
+    font-size: 12px;
 }
