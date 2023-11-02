@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.wrapper svg{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.wrapper input {
+    border: none;
+}
+.wrapper input:focus {
+    outline: none;
+}
