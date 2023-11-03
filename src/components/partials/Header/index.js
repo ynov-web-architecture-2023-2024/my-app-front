@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchInput from '@/components/UI/SearchInput';
 import styles from "./index.module.css";
 
 const Index = () => {
@@ -7,6 +8,7 @@ const Index = () => {
             <Link href="/">
                 <h1 className={styles.logo}>My wonderfull app</h1>
             </Link>
+            <SearchInput />
         </header>
     );
 }
