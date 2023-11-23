@@ -12,7 +12,7 @@ export default async function Home() {
       {/* on utilise le composant TitlePage */}
       <TitlePage title="Accueil" />
       {/* on utilise le composant GridPosts */}
-      <GridPosts articles={articles.results} />
+      <GridPosts articles={articles?.results} />
     </div>
   )
 }
