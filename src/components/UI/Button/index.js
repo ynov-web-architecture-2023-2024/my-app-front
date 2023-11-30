@@ -1,12 +1,9 @@
-import React from 'react';
-
+import styles from "./index.module.css";
 const Index = ({handleClick, text}) => {
     return (
-        <div>
-            <button onClick={handleClick}>
+        <button className={styles.btn} onClick={handleClick}>
                 {text}
             </button>
-        </div>
     );
 }
 
