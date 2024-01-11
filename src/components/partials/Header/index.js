@@ -1,3 +1,4 @@
+// Header component
 const Index = () => {
     return (
         <header className="header__main">
