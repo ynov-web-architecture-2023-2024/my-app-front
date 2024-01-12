@@ -9,5 +9,10 @@ export default {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_2}/api/search?string=${string}`,{ cache: 'no-store' });
         const articles = await res.json();
         return articles;
+    },
+    getArticle: async (id) => { 
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/articles/${id}`,{ cache: 'force-cache' });
+        const article = await res.json();
+        return article;
     }
 }
