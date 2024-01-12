@@ -2,22 +2,32 @@
 import {useEffect, useState} from "react";
 import { useParams } from 'next/navigation';
 import articlesService from "@/services/articles.api";
+import TitleArticle from "@/components/article/TitleArticle";
+import DescriptionArticle from "@/components/article/DescriptionArticle";
+import DateArticle from "@/components/article/DateArticle";
 
 const Page = () => {
     const params = useParams()
     const [article, setArticle] = useState(null);
+    const [loading, isLoading] = useState(false);
 
     useEffect(() => { 
+        isLoading(true);
         articlesService.getArticle(params.id).then(data => {
-            setArticle(data);
-        }).catch(err => console.log(err));
+            console.log(data);
+            setArticle(data.results);
+        })
+        .catch(err => console.log(err))
+        .finally(() => isLoading(false));
     }, []);
+
+    if (loading) return <div>Chargement...</div>;
 
     return (
         <div>
-            <h1>Title</h1>
-            <p>Description</p>
-            <span>Date</span>
+            <TitleArticle title={article.title} />
+            <DescriptionArticle description={article.description} />
+            <DateArticle date={article.date} />
         </div>
     );
 }
