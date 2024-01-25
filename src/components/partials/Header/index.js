@@ -30,7 +30,7 @@ const Index = () => {
                                     e.preventDefault();
                                     console.log(formData);
                                     ServerlessService.subscribeNewsletter(formData)
-                                        .then(data => console.log(data))
+                                        .then(data => console.log(data, "data"))
                                         .catch(err => console.log(err));
                                 }
                             }
